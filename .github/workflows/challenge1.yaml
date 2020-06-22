@@ -70,7 +70,13 @@ jobs:
       working-directory: Source/Tailwind.Traders.Web
       run: |
         dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/Source/Tailwind.Traders.Web
-
+        
+    - name: Run Azure webapp deploy action
+      uses: azure/webapps-deploy@v1
+      with:
+        app-name: azchallenge-1-app-service
+        package: ${{env.DOTNET_ROOT}}/Source/Tailwind.Traders.Web
+        
     # - name: Azure logout
     #   run: |
     #     az logout
