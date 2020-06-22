@@ -3,7 +3,7 @@ name: Terraform Challenge 1
 on:
   push:
     branches:
-      - challenge1
+      - master
 
 jobs:
 
