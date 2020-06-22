@@ -17,8 +17,8 @@ resource "azurerm_app_service_plan" "challenge" {
   resource_group_name = azurerm_resource_group.challenge.name
 
   sku {
-    tier = "Free"
-    size = "F1"
+    tier = "Basic"
+    size = "B1"
   }
 }
 
