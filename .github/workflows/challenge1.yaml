@@ -44,9 +44,9 @@ jobs:
 
     - uses: actions/checkout@master
 
-    # - uses: azure/login@v1
-    #   with:
-    #     creds: '${{ secrets.AZURE_CREDENTIALS }}'
+    - uses: azure/login@v1
+      with:
+        creds: '${{ secrets.AZURE_CREDENTIALS }}'
 
     - name: Use Node.js
       uses: actions/setup-node@v1
@@ -74,9 +74,9 @@ jobs:
     - name: Run Azure webapp deploy action
       uses: azure/webapps-deploy@v1
       with:
-        app-name: azchallenge-1-app-service
+        app-name: ${{ secrets.WEBAPP_APPSERVICE_NAME }}
         package: ${{env.DOTNET_ROOT}}/Source/Tailwind.Traders.Web
         
-    # - name: Azure logout
-    #   run: |
-    #     az logout
+    - name: Azure logout
+      run: |
+        az logout
